@@ -1,0 +1,170 @@
+
+body {
+    background-color: #18181b;
+} 
+
+.wrapper {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin: 0; */
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+    width: 700px; 
+    gap: 1.25rem;
+    /* position: fixed; */
+}
+
+.open-modal-btn {
+    background-color: rgb(6, 175, 121);
+    color: white;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 5px;
+    width: 85px;
+    height: 30px;
+    justify-content: center;
+}
+.open-modal-btn:hover {
+    background-color: rgb(4, 124, 86);
+}
+
+/*: Modal */
+
+.modal-screen {
+    background-color: rgb(40 40 40);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 0;
+    left: 0;
+    top: 38%;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+}
+.modal {
+    width: 440px;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+.modal header{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 2.5rem;
+   position: relative;
+   width: 440px;
+   height: 40px;
+}
+.modal header button{
+    position: absolute; 
+    left: 0.5rem;
+    width: 20px;
+    height: 24px;
+    align-items:center ;
+    justify-content: center;
+    background-color: lightgray;
+    border: 0cap;
+}
+.xBtn{
+    width:  20px;
+    height: 24px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    left: 0.5rem;
+}
+
+.modal header span{
+    color: white;
+    width: 67px;
+    height: 24px;
+    
+}
+.modal main {
+  padding: 1rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.close-modal-x{
+    cursor: pointer;
+}
+
+.create{
+    background-color: rgb(6, 175, 121);
+    border-radius: 5px;
+    border: 0cap;
+    cursor: pointer;
+}
+.create:hover {
+    background-color: rgb(4, 124, 86);
+}
+
+.cancle{
+    background-color: rgb(220 38 38);
+    border-radius: 5px;
+    border: 0cap;
+    cursor: pointer;
+}
+.cancle:hover {
+    background-color: rgb(167, 30, 30);
+}
+
+.modal-screen.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* todo container */
+
+.todos-container {
+    width: 700px;
+    height: 23px;
+}
+
+/* Delete Todo Btn */
+
+.todo-div {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    background-color: rgb(63 63 70 / 0.5);
+    width: 700px;
+    height: 35px;
+    align-items: center;
+}
+
+.todo-article {
+    display: flex;
+    justify-content: space-between;
+}
+.delete-todo {
+    display: flex;
+    justify-content: space-between;
+    width: 53px;
+    height: 23px;
+    cursor: pointer;
+    background-color: rgb(220 38 38);
+    color: white;
+    border: 0px;
+    border-radius: 2px;
+}
+.delete-todo:hover {
+    background-color: rgb(167, 30, 30);
+}
+
+.delete-todo.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
