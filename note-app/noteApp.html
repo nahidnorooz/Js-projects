@@ -5,10 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note</title>
     <link rel="stylesheet" href="/note-app/noteApp.css">
+    <link rel="icon" type="image/png" href="/note-app/pics/Notes.png">
+
 </head>
 <body>
     
 
+    <div>
+        <button>Create</button>
+    </div>
+
+    <div class="modal-screen">
+        <div class="modal">
+            <header class="header">
+            <h3 class="h3">Create Note</h3>
+            <button class="x-btn">X</button>
+        </header>
+        <main class="main">
+            <textarea name="notes" class="text" placeholder="Please enter your note..." required></textarea>
+        <div class="colors">
+            <div data-color=""></div>
+
+        </div> 
+        </main>
+        
+        <footer class="buttons">
+            <button class="create">Create</button>
+            <button class="cancle">Cancle</button>
+        </footer>
+        </div>
+        
+    </div>
 
     <script src="/note-app/noteApp.js"></script>
 </body>
