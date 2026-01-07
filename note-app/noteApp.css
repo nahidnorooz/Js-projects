@@ -3,6 +3,10 @@ body {
     background-color: rgba(0, 0, 0, 0.849);
 }
 
+.create-note {
+    background-color: transparent;
+
+}
 .modal-screen {
     display: flex;
     flex-direction: column;
