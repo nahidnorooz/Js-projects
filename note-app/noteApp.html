@@ -10,7 +10,7 @@
 </head>
 <body>
     
-    <aside class="content">
+    <aside class="aside-content">
         <header>
             <img src="/note-app/pics/Notes.png" alt="notebook">
         </header>
@@ -18,11 +18,27 @@
             <img src="/note-app/pics/icon-plusc.png" alt="create note">
         </button>
     </aside>
+    <main class="container">
+        <header>
+            <div class="search-card">
+                <input class="search-notes" name="search-bar" type="text" placeholder="Search...">
+                <button class="search-btn" type="submit">
+                    <img src="/note-app/pics/search.png" alt="search button">
+                </button>
+            </div>
+        </header>
+    </main>
 
+    <section class="content">
+        <h2>Notes</h2>
+        <section class="notes-container">
+            <!-- Data loaded from js -->
+        </section>
+    </section>
     <div class="modal-screen">
         <div class="modal">
             <header class="header">
-            <h3 class="h3">Create Note</h3>
+            <span class="create-title">Create Note</span>
             <button class="x-btn">
                 <img src="/note-app/pics/exit-button.png" alt="exit button">
             </button>
@@ -32,7 +48,7 @@
         </main>
         
         <div class="colors">
-            <span>Note color: </span>
+            <span class="colors-title">Note colors: </span>
             <div
             data-color="#dc2626"
             style="background: #dc2626;"

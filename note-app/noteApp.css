@@ -3,7 +3,7 @@ body {
     background-color: #bad4dd;
 }
 
-.content {
+.aside-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -19,9 +19,27 @@ body {
     align-items: center;
     justify-items: center;
     margin-right: 15px;
-
-
+    cursor: pointer;
 }
+
+/* Notes Content */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    justify-content: center;
+}
+
+.notes-container {
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    justify-content: center;
+}
+
+/* Modal */
+
 .modal-screen {
     display: flex;
     flex-direction: column;
@@ -33,6 +51,7 @@ body {
     width: 100%;
     height: 100%;
 }
+
 .modal-screen.hidden {
     visibility: hidden;
     opacity: 0;
@@ -45,7 +64,12 @@ body {
     background-color: rgba(24, 24, 27, 0.788);
     align-items: center;
     justify-content: center;
-
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 5px;
+    text-align: center;
+    line-height: 1.6;
 }
 
 .header {
@@ -54,7 +78,13 @@ body {
     align-items: center;
     gap: 10px;
 }
-.h3 {
+.x-btn {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.create-title {
     font-family:'Times New Roman', Times, serif;
 }
 
@@ -71,6 +101,22 @@ body {
     background-color: rgba(46, 46, 53, 0.575);
     display: flex;
 }
+
+.create {
+    cursor: pointer;
+}
+
+.cancle {
+    cursor: pointer;
+}
+/* Color Box */
+
+.colors {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .color-box {
     position: relative;
     display: flex;
@@ -82,4 +128,40 @@ body {
     justify-content: center;
     overflow: hidden;
     border-radius: 9999px;
+}
+
+/* Content */
+
+.container {
+    display: flex;
+}
+
+/* Search bar */
+
+.search-notes {
+    background: transparent;
+    border: 0;
+}
+
+.search-card {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.search-btn {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+
+/* Notes */
+
+.note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
