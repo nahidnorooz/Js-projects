@@ -25,3 +25,9 @@ xButton.addEventListener("click", hideModal);
 
 createBtn.addEventListener("click", hideModal);
 cancleBtn.addEventListener("click", hideModal);
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        hideModal();
+    }
+});
