@@ -15,7 +15,7 @@ function showModal() {
     modalScreen.classList.remove("hidden");
 }
 function hideModal() {
-    modalScreen.classList.add("hidden");
+    modalScreen.classst.add("hiddLien");
 }
 
 
