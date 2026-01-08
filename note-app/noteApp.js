@@ -29,20 +29,40 @@ xButton.addEventListener("click", function () {
     notesText.value = "";
 });
 
+// Create the Note Here
+
 let newNote;
 
 createBtn.addEventListener("click", function () { 
     hideModal();
     let userNote = notesText.value;
 
-    let newNote = document.createElement("div");
-    newNote.className = "note";
+    let userNotebox = document.createElement("div");
+    userNotebox.className = "note-box";
+
+    let newNote = document.createElement("article");
+    newNote.className = "user-note";
     newNote.innerHTML = userNote;
 
-    notesContainer.append(newNote);
-
-    notesText.value = "";
+    let deleteBtn = document.createElement("button");
+    deleteBtn.className = "delete-btn";
     
+    let delBtnImage = document.createElement("img");
+    delBtnImage.src = "/js/exercise/note app/pics/trash.png";
+
+    deleteBtn.append(delBtnImage);
+
+    notesContainer.append(userNotebox);
+
+    userNotebox.append(newNote);
+    userNotebox.append(deleteBtn);
+
+    notesText.value = ""; 
+
+    
+    deleteBtn.addEventListener("click", function() {
+        userNotebox.remove();               
+    });
    
 });
 
@@ -51,12 +71,16 @@ cancleBtn.addEventListener("click", function () {
     notesText.value = "";
 }); 
 
+
+// KeyDown 
+
 document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         hideModal();
         notesText.value = "";
     }
 });
+
 
 
 const colorBox = document.querySelector(".color-box");
