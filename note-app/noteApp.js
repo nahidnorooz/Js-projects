@@ -48,7 +48,7 @@ createBtn.addEventListener("click", function () {
     deleteBtn.className = "delete-btn";
     
     let delBtnImage = document.createElement("img");
-    delBtnImage.src = "/js/exercise/note app/pics/trash.png";
+    delBtnImage.src = "/note-app/pics/trash.png";
 
     deleteBtn.append(delBtnImage);
 
@@ -64,7 +64,19 @@ createBtn.addEventListener("click", function () {
         userNotebox.remove();               
     });
    
+    
+    const colorBoxAll = document.querySelectorAll(".color-box");
+
+colorBoxAll.forEach(function (color) {
+
+    color.addEventListener("click", function () {
+        let colorCode = color.getAttribute("data-color");
+        
+        userNotebox.style.backgroundColor = colorCode;
+    });
 });
+
+
 
 cancleBtn.addEventListener("click", function () {
     hideModal();
@@ -79,8 +91,5 @@ document.addEventListener("keydown", function(event) {
         hideModal();
         notesText.value = "";
     }
+
 });
-
-
-
-const colorBox = document.querySelector(".color-box");
