@@ -50,6 +50,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
+    inset: 0;
 }
 
 .modal-screen.hidden {
@@ -59,25 +60,31 @@ body {
 
 .modal {
     width: 550px;
-    height: 300px;
+    height: 320px;
     border-radius: 6px;
     background-color: rgba(24, 24, 27, 0.788);
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: flex-start;
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding: 5px;
     text-align: center;
     line-height: 1.6;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: left;
     gap: 10px;
+    margin: 5px;
 }
+
 .x-btn {
     background-color: transparent;
     border: 0;
@@ -90,37 +97,69 @@ body {
 
 .main {
     align-items: center;
+    margin-left: 5px;
 }
 
 
 .text {
-    width: 480px;
-    height: 100px;
+    width: 524px;
+    height: 140px;
     align-items: center;
     justify-content: center;
     background-color: rgba(46, 46, 53, 0.575);
     display: flex;
+    color: white;
+    resize: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    margin: 0;
+    position: static;
 }
 
 .create {
     cursor: pointer;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 4px;
 }
 
 .cancle {
     cursor: pointer;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 4px;
 }
+
 /* Color Box */
 
 .colors {
     display: flex;
-    align-items: center;
-    gap: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+}
+
+.colors-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-left: 9px;
+}
+
+.color-list {
+    display: flex;
+    gap: 3px;
+    margin-left: 9px;
 }
 
 .color-box {
     position: relative;
     display: flex;
-    flex-direction: column;
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -136,6 +175,7 @@ body {
     display: flex;
 }
 
+
 /* Search bar */
 
 .search-notes {
@@ -146,7 +186,10 @@ body {
 .search-card {
     display: flex;
     align-items: center;
+    justify-content: center;
     border-radius: 5px;
+    border: 10px;
+    border-color: black;
 }
 
 .search-btn {

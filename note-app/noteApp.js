@@ -24,7 +24,10 @@ function hideModal() {
 
 createNote.addEventListener("click", showModal);
 
-xButton.addEventListener("click", hideModal);
+xButton.addEventListener("click", function () {
+    hideModal();
+    notesText.value = "";
+});
 
 let newNote;
 
@@ -51,6 +54,9 @@ cancleBtn.addEventListener("click", function () {
 document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         hideModal();
+        notesText.value = "";
     }
 });
 
+
+const colorBox = document.querySelector(".color-box");
