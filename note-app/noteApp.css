@@ -177,6 +177,13 @@ body {
     border-radius: 9999px;
 }
 
+.color-box.selected {
+    border: 1px;
+    border-color: lightgray;
+    
+}
+
+
 /* Content */
 
 .container {
@@ -198,7 +205,7 @@ body {
     flex-direction: column;
     align-items:baseline;
     justify-content: center;
-    gap: 5px;
+    gap: 15px;
 }
 
 /* Notes */
@@ -214,7 +221,6 @@ body {
 .note-box {
     display: flex;
     flex-direction: column;
-    background-color: yellowgreen;
     width: 400px;
     position: static;
     align-items: flex-start;
@@ -223,6 +229,8 @@ body {
     border-radius: 5px;
     padding: 10px;
     margin: 0;
+    background-color: #0891b2;
+    border-radius: 6px;
 }
 
 .delete-btn {

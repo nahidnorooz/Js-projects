@@ -13,6 +13,8 @@ const cancleBtn = document.querySelector(".cancle");
 
 const notesContainer = document.querySelector(".notes-container");
 
+const colorBoxAll = document.querySelectorAll(".color-box");
+
 
 function showModal() {
     modalScreen.classList.remove("hidden");
@@ -59,33 +61,33 @@ createBtn.addEventListener("click", function () {
 
     notesText.value = ""; 
 
-    
+
+   // Delete Button 
     deleteBtn.addEventListener("click", function() {
         userNotebox.remove();               
     });
    
     
-    const colorBoxAll = document.querySelectorAll(".color-box");
-
+// Color Box
 colorBoxAll.forEach(function (color) {
 
     color.addEventListener("click", function () {
         let colorCode = color.getAttribute("data-color");
-        
+
+        color.classList.add("selected");
         userNotebox.style.backgroundColor = colorCode;
     });
 });
 
 
-
+// Cancle Button
 cancleBtn.addEventListener("click", function () {
     hideModal();
     notesText.value = "";
 }); 
 
 
-// KeyDown 
-
+// KeyDown Events
 document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         hideModal();
