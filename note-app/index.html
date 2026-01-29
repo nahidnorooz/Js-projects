@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note</title>
-    <link rel="stylesheet" href="/note-app/noteApp.css">
+    <link rel="stylesheet" href="/note-app/style.css">
     <link rel="icon" type="image/png" href="/note-app/pics/Notes.png">
-
 </head>
 <body>
     
@@ -28,14 +27,14 @@
             </div>
         </header>
     </main>
-
     <section class="content">
         <h2>Notes</h2>
         <section class="notes-container">
             <!-- Data loaded from js -->
         </section>
     </section>
-    <div class="modal-screen">
+
+    <div class="modal-screen hidden">
         <div class="modal">
             <header class="header">
             <span class="create-title">Create Note</span>
@@ -44,12 +43,11 @@
             </button>
         </header>
         <main class="main">
-            <textarea name="notes" class="text" placeholder="Please enter your note..." required></textarea>
+            <textarea name="notes" value="user-note" class="text" placeholder="Please enter your note..." required></textarea>
         </main>
-        
-          <div class="colors">
+
+        <div class="colors">
             <span class="colors-title">Note colors: </span>
-            
             <div class="color-list">
                  <div
             data-color="#dc2626"
@@ -84,17 +82,19 @@
               <div54ew
                 data-color="#0891b2"
                 style="background: #0891b2"
-                class="color-box"
+                class="color-box selected"
               ></div>
             </div>
-            
+           
+        
         <footer class="buttons">
-            <button class="create">Create</button>
-            <button class="cancle">Cancle</button>
+            <button class="continue" type="button">Continue</button>
+            <button class="cancle" type="button">Cancle</button>
         </footer>
-    </div>
-    </div>
+        </div>
+        </div>
 
-    <script src="/note-app/noteApp.js"></script>
+        
+    <script src="/note-app/app.js"></script>
 </body>
 </html>

@@ -1,20 +1,17 @@
 
-
 const modalScreen = document.querySelector(".modal-screen");
 const modal = document.querySelector(".modal");
 const xButton = document.querySelector(".x-btn");
-
-const notesText = document.querySelector(".text");
-
+const textarea = document.querySelector(".text");
 const createNote = document.querySelector(".create-note");
-
-const createBtn = document.querySelector(".create");
+const continueBtn = document.querySelector(".continue");
 const cancleBtn = document.querySelector(".cancle");
-
 const notesContainer = document.querySelector(".notes-container");
+const colorBoxes = document.querySelectorAll(".color-box");
+const searchInput = document.querySelector(".search-notes");
+const searchBtn = document.querySelector(".search-btn");
 
-const colorBoxAll = document.querySelectorAll(".color-box");
-
+let mainColor;
 
 function showModal() {
     modalScreen.classList.remove("hidden");
@@ -22,76 +19,97 @@ function showModal() {
 function hideModal() {
     modalScreen.classList.add("hidden");
 }
-
-
-createNote.addEventListener("click", showModal);
-
-xButton.addEventListener("click", function () {
-    hideModal();
-    notesText.value = "";
-});
-
-// Create the Note Here
-
-let newNote;
-
-createBtn.addEventListener("click", function () { 
-    hideModal();
-    let userNote = notesText.value;
-
+function addNote() {
+    userNote = textarea.value;    
+    
     let userNotebox = document.createElement("div");
     userNotebox.className = "note-box";
+    userNotebox.style.backgroundColor = mainColor;
 
-    let newNote = document.createElement("article");
+    newNote = document.createElement("p");
     newNote.className = "user-note";
     newNote.innerHTML = userNote;
 
+    userNotebox.append(newNote);
+
+    let trashDiv = document.createElement("div");
     let deleteBtn = document.createElement("button");
     deleteBtn.className = "delete-btn";
+
+    trashDiv.append(deleteBtn);
     
     let delBtnImage = document.createElement("img");
     delBtnImage.src = "/note-app/pics/trash.png";
 
     deleteBtn.append(delBtnImage);
+    
 
     notesContainer.append(userNotebox);
+    userNotebox.append(trashDiv);
+    
+    textarea.value = ""; 
+    hideModal();
 
-    userNotebox.append(newNote);
-    userNotebox.append(deleteBtn);
-
-    notesText.value = ""; 
-
-
-   // Delete Button 
+    // Delete Button
     deleteBtn.addEventListener("click", function() {
         userNotebox.remove();               
-    });
-   
-    
-// Color Box
-colorBoxAll.forEach(function (color) {
+    })};
 
-    color.addEventListener("click", function () {
-        let colorCode = color.getAttribute("data-color");
+function searchNotes() {
+    const notes = document.querySelectorAll(".note-box");
+    const searchValue = searchInput.value
+
+    notes.forEach(function (note) {        
+        const noteContentElm = note.querySelector(".user-note");
+                
+        if (noteContentElm.innerHTML.includes (searchValue)) {
+            note.style.display = "flex";
+        }
+        else {
+            note.style.display = "none";     
+        }
+    });
+}
+
+// Search Bar
+searchBtn.addEventListener("click", searchNotes);
+
+// Continue Button
+continueBtn.addEventListener("click", addNote);
+
+// Color Box
+    colorBoxes.forEach(function (color) { 
+        
+        color.addEventListener("click", function (event) {
+        mainColor = event.target.dataset.color;
+        
+        const selectedColorBox = document.querySelector(".selected");
+        selectedColorBox.classList.remove("selected");
 
         color.classList.add("selected");
-        userNotebox.style.backgroundColor = colorCode;
-    });
-});
+        });});
 
+// Create Note Button
+createNote.addEventListener("click", showModal);
 
 // Cancle Button
 cancleBtn.addEventListener("click", function () {
     hideModal();
-    notesText.value = "";
+    textarea.value = "";
 }); 
 
+// Close Button
+xButton.addEventListener("click", function () {
+    hideModal();
+    textarea.value = "";
+});
 
 // KeyDown Events
 document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         hideModal();
-        notesText.value = "";
-    }
+        textarea.value = "";
+    }});
 
-});
+
+
