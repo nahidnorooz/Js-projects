@@ -33,7 +33,6 @@ body {
  /* Modal */
 
 .modal-screen {
-    background-color: rgb(40 40 40);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -47,6 +46,7 @@ body {
 }
 .modal {
     width: 440px;
+    height: 200px;
     border-radius: 2px;
     align-items: center;
     justify-content: center;
@@ -54,6 +54,8 @@ body {
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+    background-color: #282828;
+    border-radius: 5px;
 }
 .modal header{
    display: flex;
@@ -67,20 +69,20 @@ body {
 .modal header button{
     position: absolute; 
     left: 0.5rem;
-    width: 20px;
-    height: 24px;
     align-items:center ;
     justify-content: center;
-    background-color: lightgray;
-    border: 0cap;
+    background-color: transparent;
+    border: 0;
+    top: 0;
 }
 .xBtn{
     width:  20px;
-    height: 24px;
     position: absolute;
     align-items: center;
     justify-content: center;
     left: 0.5rem;
+    cursor: pointer;
+    top: 0;
 }
 
 .modal header span{
@@ -93,10 +95,6 @@ body {
   padding: 1rem;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.close-modal-x{
-    cursor: pointer;
 }
 
 .create{
