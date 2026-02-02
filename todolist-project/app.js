@@ -41,7 +41,7 @@ exitBtn.addEventListener("click", function (){
 
         userNewTask = newTask.value;
 
-        let todoDiv = document.createElement("div");
+       /* let todoDiv = document.createElement("div");
         let todoArticle = document.createElement("article");
         let todoDelBtn = document.createElement("button");
 
@@ -54,16 +54,18 @@ exitBtn.addEventListener("click", function (){
         todoDelBtn.innerHTML = "Delete";
 
         todoDiv.append(todoArticle, todoDelBtn)
-        todoContainer.append(todoDiv);
+        todoContainer.append(todoDiv); */
         
+
+        todoContainer.insertAdjacentHTML("afterbegin", 
+            `<div class="todo-div"><article class="todo-article unhidden">${userNewTask}</article><button class="delete-todo unhidden">Delete</button></div>`);
+            
          newTask.value = "";
 
-        
-        todoDelBtn.addEventListener("click", function () {
-            todoArticle.remove();
-            todoDelBtn.remove();
+       const todoDelBtn = document.querySelector(".delete-todo")
+       const todoDiv = document.querySelector(".todo-div");
+       todoDelBtn.addEventListener("click", function () {
             todoDiv.remove();
-            
         });
 
     });
