@@ -40,21 +40,6 @@ exitBtn.addEventListener("click", function (){
         modalScreen.classList.add("hidden");
 
         userNewTask = newTask.value;
-
-       /* let todoDiv = document.createElement("div");
-        let todoArticle = document.createElement("article");
-        let todoDelBtn = document.createElement("button");
-
-        todoDiv.className = "todo-div";
-
-        todoArticle.className = "todo-article unhidden"
-        todoArticle.innerHTML = userNewTask;
-
-        todoDelBtn.className = "delete-todo unhidden"
-        todoDelBtn.innerHTML = "Delete";
-
-        todoDiv.append(todoArticle, todoDelBtn)
-        todoContainer.append(todoDiv); */
         
 
         todoContainer.insertAdjacentHTML("afterbegin", 
