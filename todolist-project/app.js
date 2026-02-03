@@ -4,7 +4,7 @@ let modalBtn = document.querySelector(".open-modal-btn");
 
 let modalScreen = document.querySelector(".modal-screen");
 
-let exitBtn = document.querySelector(".close-modal-x");
+let exitBtn = document.querySelector(".xBtn");
 
 let newTask = document.querySelector(".new-task");
 
@@ -43,7 +43,10 @@ exitBtn.addEventListener("click", function (){
         
 
         todoContainer.insertAdjacentHTML("afterbegin", 
-            `<div class="todo-div"><article class="todo-article unhidden">${userNewTask}</article><button class="delete-todo unhidden">Delete</button></div>`);
+            `<div class="todo-div">
+            <article class="todo-article unhidden">${userNewTask}</article>
+            <button class="delete-todo unhidden">Delete</button>
+            </div>`);
             
          newTask.value = "";
 
@@ -52,5 +55,6 @@ exitBtn.addEventListener("click", function (){
        todoDelBtn.addEventListener("click", function () {
             todoDiv.remove();
         });
-
     });
+
+    

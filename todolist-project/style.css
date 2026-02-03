@@ -17,7 +17,7 @@ body {
 }
 
 .open-modal-btn {
-    background-color: rgb(6, 175, 121);
+    background-color: #06af79;
     color: white;
     cursor: pointer;
     border: 0px;
@@ -27,26 +27,26 @@ body {
     justify-content: center;
 }
 .open-modal-btn:hover {
-    background-color: rgb(4, 124, 86);
+    background-color: #047c56;
 }
 
  /* Modal */
 
-.modal-screen {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    top: 0;
-    left: 0;
-    top: 38%;
-    right: 0;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
+ .modal-screen {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(52 52 52 / 0.6);
+  backdrop-filter: blur(5px);
+  transition-duration: 150ms;
 }
 .modal {
-    width: 440px;
-    height: 200px;
+    width: 300px;
     border-radius: 2px;
     align-items: center;
     justify-content: center;
@@ -55,34 +55,38 @@ body {
     margin-left: auto;
     margin-right: auto;
     background-color: #282828;
-    border-radius: 5px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 5px;
+    border: solid;
+    border-width: 1px;
+    border-color: #1f1e1e;
 }
 .modal header{
    display: flex;
    align-items: center;
    justify-content: center;
-   height: 2.5rem;
+   width: 100%;
    position: relative;
-   width: 440px;
-   height: 40px;
+   top: 5px;
 }
 .modal header button{
     position: absolute; 
-    left: 0.5rem;
-    align-items:center ;
-    justify-content: center;
+    right: 0.5rem;
     background-color: transparent;
-    border: 0;
-    top: 0;
+    border: 0;  
 }
 .xBtn{
     width:  20px;
-    position: absolute;
     align-items: center;
     justify-content: center;
-    left: 0.5rem;
+    right: 0.5rem;
     cursor: pointer;
-    top: 0;
+}
+.xBtn:hover {
+    border: solid;
+    border-width: 1px;
+    border-color: #ffffff7c;
 }
 
 .modal header span{
@@ -95,26 +99,54 @@ body {
   padding: 1rem;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+  width: 200px;
+}
+.new-task {
+    position: relative;
+    height: 20px;
+    width: 100%;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: #ffffff0d;
+    background-color: #3f3f464d;
+    transition-duration: 150ms;
+    color: white;
+    outline: 0;
 }
 
+.modal footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    line-height: 1.25rem;
+} 
+
 .create{
-    background-color: rgb(6, 175, 121);
+    background-color: #06af79;
     border-radius: 5px;
     border: 0cap;
     cursor: pointer;
+    color: #332f2f;
+
 }
 .create:hover {
-    background-color: rgb(4, 124, 86);
+    background-color: #047c56;
 }
 
 .cancle{
-    background-color: rgb(220 38 38);
+    background-color: #dc2626;
     border-radius: 5px;
     border: 0cap;
     cursor: pointer;
+    color: #332f2f;
+
 }
 .cancle:hover {
-    background-color: rgb(167, 30, 30);
+    background-color: #a71e1e;
 }
 
 .modal-screen.hidden {
@@ -158,13 +190,13 @@ body {
     width: 53px;
     height: 23px;
     cursor: pointer;
-    background-color: rgb(220 38 38);
+    background-color: #dc2626;
     color: white;
-    border: 0px;
+    border: 4px;
     border-radius: 2px;
 }
 .delete-todo:hover {
-    background-color: rgb(167, 30, 30);
+    background-color: #a71e1e;
 }
 
 .delete-todo.hidden {
