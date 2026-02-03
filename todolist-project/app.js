@@ -10,33 +10,18 @@ let newTask = document.querySelector(".new-task");
 
 let createBtn = document.querySelector(".create");
 let cancleBtn = document.querySelector(".cancle");
-
 let todoContainer = document.querySelector(".todos-container");
+let userNewTask; 
 
-
-modalBtn.addEventListener("click", function (){
+function showModal() {
     modalScreen.classList.remove("hidden");
-});
-
-
-exitBtn.addEventListener("click", function (){
-        modalScreen.classList.add("hidden");
-        newTask.value = "";
-
-    });
-    cancleBtn.addEventListener("click", function (){
-        modalScreen.classList.add("hidden");
-
-        userNewTask = newTask.value;
-        newTask.value = "";
-
-
-    });
-
-    let userNewTask; 
-
-    createBtn.addEventListener("click", function (event){
-        event.preventDefault();
+}
+function hideModal() {
+    modalScreen.classList.add("hidden");
+    newTask.value = "";
+}
+function addTask(event) {
+     event.preventDefault();
         modalScreen.classList.add("hidden");
 
         userNewTask = newTask.value;
@@ -55,6 +40,10 @@ exitBtn.addEventListener("click", function (){
        todoDelBtn.addEventListener("click", function () {
             todoDiv.remove();
         });
-    });
+}
 
-    
+modalBtn.addEventListener("click", showModal);
+exitBtn.addEventListener("click", hideModal);
+cancleBtn.addEventListener("click", hideModal); 
+createBtn.addEventListener("click",addTask);
+
