@@ -1,6 +1,6 @@
 
 body {
-    background-color: #bad4dd;
+    background-color: #c5d0e6;
     font-family:monospace;
 }
 
@@ -26,7 +26,13 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    background-color: #9be6ffe0;
+    background-color: #c5d0e6;
+    border: solid;
+    border-width: 1px;
+    border-color: #9ab1e2d8;
+}
+.search-card:hover {
+    border-color: #00000086;
 }
 .search-card {
     input {
@@ -43,7 +49,6 @@ body {
     cursor: pointer;
 }
 
-
 .create-note {
     background-color: transparent;
     border: 0;
@@ -51,6 +56,12 @@ body {
     justify-items: center;
     margin-right: 15px;
     cursor: pointer;
+}
+.create-note :hover {
+    border: solid;
+    border-width: 0.5px;
+    border-color: #e2dfd0a6;
+    border-radius: 999px;
 }
 
 
@@ -106,7 +117,6 @@ body {
     border: 0;
     cursor: pointer;
 }
-
 .create-title {
     font-family:'Times New Roman', Times, serif;
 }

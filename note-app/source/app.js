@@ -15,6 +15,7 @@ let mainColor;
 
 function showModal() {
     modalScreen.classList.remove("hidden");
+    textarea.focus();
 }
 function hideModal() {
     modalScreen.classList.add("hidden");
@@ -88,7 +89,7 @@ createNote.addEventListener("click", showModal);
 cancleBtn.addEventListener("click", hideModal);
 xButton.addEventListener("click", hideModal);
 
-modal.addEventListener("keydown", function(event) {
+document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         hideModal();
     }
