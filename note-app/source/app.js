@@ -18,6 +18,7 @@ function showModal() {
 }
 function hideModal() {
     modalScreen.classList.add("hidden");
+    textarea.value = "";
 }
 function addNote() {
     userNote = textarea.value;    
@@ -47,7 +48,6 @@ function addNote() {
     notesContainer.append(userNotebox);
     userNotebox.append(trashDiv);
     
-    textarea.value = ""; 
     hideModal();
 
     // Delete Button
@@ -71,13 +71,6 @@ function searchNotes() {
     });
 }
 
-// Search Bar
-searchBtn.addEventListener("click", searchNotes);
-
-// Continue Button
-continueBtn.addEventListener("click", addNote);
-
-// Color Box
     colorBoxes.forEach(function (color) { 
         
         color.addEventListener("click", function (event) {
@@ -89,27 +82,14 @@ continueBtn.addEventListener("click", addNote);
         color.classList.add("selected");
         });});
 
-// Create Note Button
+searchBtn.addEventListener("click", searchNotes);
+continueBtn.addEventListener("click", addNote);
 createNote.addEventListener("click", showModal);
+cancleBtn.addEventListener("click", hideModal);
+xButton.addEventListener("click", hideModal);
 
-// Cancle Button
-cancleBtn.addEventListener("click", function () {
-    hideModal();
-    textarea.value = "";
-}); 
-
-// Close Button
-xButton.addEventListener("click", function () {
-    hideModal();
-    textarea.value = "";
-});
-
-// KeyDown Events
-document.addEventListener("keydown", function(event) {
+modal.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         hideModal();
-        textarea.value = "";
-    }});
-
-
-
+    }
+});
