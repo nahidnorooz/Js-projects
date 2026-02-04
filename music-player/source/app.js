@@ -31,10 +31,10 @@ function toggle() {
 }
 
 function skipBack() {
-  music.currentTime -= 15;
+  music.currentTime -= 10;
 }
 function skipAhead() {
-    music.currentTime += 15;
+    music.currentTime += 10;
 
 }
 
@@ -75,7 +75,3 @@ skipBackBtn.addEventListener("click", skipBack);
 skipAheadBtn.addEventListener("click", skipAhead);
 previousBtn.addEventListener("click", previousSong);
 nextBtn.addEventListener("click", nextSong);
-
-
-
-
