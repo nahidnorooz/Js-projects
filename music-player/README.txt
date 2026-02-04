@@ -4,7 +4,7 @@ A web-based music player built with JavaScript that provides interactive audio p
 
 ## Features
 - Play and pause audio tracks
-- Skip forward and backward by 15 seconds
+- Skip forward and backward by 10 seconds
 - next and previous track navigation
 - Dynamic track handling
 - clean and responsive interface
