@@ -1,0 +1,47 @@
+
+body {
+    background-color: #f2f0ef;
+}
+.music-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.music {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+.cover-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+}
+.music-title {
+    font-size: 22px;  
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.buttons * {
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.buttons * :hover {
+    border-radius: 90px;
+    background-color: #cbced198;
+    box-shadow: 0px 0px 0px 0px #cbced1be;
+    align-items: center;
+    justify-content: center;
+}
