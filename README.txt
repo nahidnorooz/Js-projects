@@ -7,6 +7,7 @@ This repository contains small projects that i built to practice and showcase my
 - `color-generator/`
 - `todo-list-project/`
 - `note-app/`
+- `music-player/`
 - ... and more as i continue adding new projects.
 
 
