@@ -20,8 +20,7 @@ function hideModal() {
     modalScreen.classList.add("hidden");
     newTask.value = "";
 }
-function addTask(event) {
-    event.preventDefault();
+function addTask() {
         modalScreen.classList.add("hidden");
         userNewTask = newTask.value;
         todoContainer.insertAdjacentHTML("afterbegin", 
@@ -44,8 +43,11 @@ exitBtn.addEventListener("click", hideModal);
 cancleBtn.addEventListener("click", hideModal); 
 createBtn.addEventListener("click",addTask);
 
-document.addEventListener("keydown", function(event) {
+modalScreen.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         hideModal();
     } 
+    else if (event.key === "Enter") {
+        addTask();
+    }
 });
