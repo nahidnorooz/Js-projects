@@ -31,7 +31,6 @@ function toggle() {
         toggleBtn.classList.add("pause");
     }
 }
-
 function skipBack() {
   music.currentTime -= 10;
 }
@@ -79,3 +78,5 @@ skipBackBtn.addEventListener("click", skipBack);
 skipAheadBtn.addEventListener("click", skipAhead);
 previousBtn.addEventListener("click", previousSong);
 nextBtn.addEventListener("click", nextSong);
+
+music.addEventListener("ended", toggle)
