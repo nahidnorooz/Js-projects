@@ -9,11 +9,13 @@ const previousBtn = document.querySelector(".previous-btn");
 const nextBtn = document.querySelector(".next-btn");
 const musicCover = document.querySelector(".cover-img");
 const musicTitle = document.querySelector(".music-title");
+const singerName = document.querySelector(".singer-name");
+
 
 const musics = [
-{id: 1, src: "/music-player/audios/Little Nightmares II (Main Theme)   Tobias Lilja.m4a", cover: "/music-player/imgaes/little nightmares.jpg", title: "Little Nightmares II (Main Theme)"},
-{id: 2, src: "/music-player/audios/Samorost-3-Soundtrack-08-Prenatal-Hunters-Floex-Revision-Flo.m4a", cover: "/music-player/imgaes/samorost3.jpeg", title: "Samorost 3 soundtrack"},
-{id: 3, src: "/music-player/audios/rises the moon   liana flores.mp3", cover: "/music-player/imgaes/rises-the-moon.jpeg", title: "Rises the moon"}
+{id: 1, src: "/music-player/audios/Little Nightmares II (Main Theme)   Tobias Lilja.m4a", cover: "/music-player/imgaes/little nightmares.jpg", title: "Little Nightmares II (Main Theme)", singer: "Tobias Lilja"},
+{id: 2, src: "/music-player/audios/Samorost-3-Soundtrack-08-Prenatal-Hunters-Floex-Revision-Flo.m4a", cover: "/music-player/imgaes/samorost3.jpeg", title: "Samorost 3 soundtrack", singer: "Floex"},
+{id: 3, src: "/music-player/audios/rises the moon   liana flores.mp3", cover: "/music-player/imgaes/rises-the-moon.jpeg", title: "Rises the moon", singer: "Liana Flores"}
 ]
 
 let mainMusicIndex = 0;
@@ -48,6 +50,7 @@ function nextSong() {
    musicCover.setAttribute("src", mainMusic.cover);
    music.setAttribute("src", mainMusic.src);
    musicTitle.innerHTML = mainMusic.title;
+   singerName.innerHTML = mainMusic.singer;
    
    music.play();
    toggleBtnImg.setAttribute("src", "/music-player/imgaes/pause.png");
@@ -64,6 +67,7 @@ function previousSong() {
     musicCover.setAttribute("src", mainMusic.cover);
     music.setAttribute("src", mainMusic.src);
     musicTitle.innerHTML = mainMusic.title;
+    singerName.innerHTML = mainMusic.singer;
 
     music.play();
     toggleBtnImg.setAttribute("src", "/music-player/imgaes/pause.png");

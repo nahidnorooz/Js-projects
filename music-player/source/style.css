@@ -7,21 +7,36 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
 }
 .music {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; 
+    padding: 5px;
 }
 .cover-img {
     width: 300px;
     height: 300px;
     border-radius: 5px;
 }
+.cover-img:hover {
+    outline: 1px solid #f8ea97e0;
+}
+.titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
 .music-title {
-    font-size: 22px;  
+    font-size: 21px;
+    height: 0px;
+}
+.singer-name {
+    font-size: 18px;
+    height: 25px;
 }
 .buttons {
     display: flex;
