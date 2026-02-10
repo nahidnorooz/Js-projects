@@ -10,6 +10,10 @@ const nextBtn = document.querySelector(".next-btn");
 const musicCover = document.querySelector(".cover-img");
 const musicTitle = document.querySelector(".music-title");
 const singerName = document.querySelector(".singer-name");
+const themeToggleBtn = document.querySelector(".theme-toggle-btn");
+const themeToggleImg = document.querySelector(".theme-toggle-img");
+
+
 
 
 const musics = [
@@ -79,3 +83,4 @@ skipAheadBtn.addEventListener("click", skipAhead);
 previousBtn.addEventListener("click", previousSong);
 nextBtn.addEventListener("click", nextSong);
 music.addEventListener("ended", toggle);
+

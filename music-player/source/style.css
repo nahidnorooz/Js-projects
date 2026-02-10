@@ -1,7 +1,10 @@
 
 body {
-    background-color: #f2f0ef;
+    background-color: #000000ec;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
 }
+
 .music-card {
     display: flex;
     flex-direction: column;
@@ -21,7 +24,7 @@ body {
     border-radius: 5px;
 }
 .cover-img:hover {
-    outline: 1px solid #f8ea97e0;
+    outline: 1px solid #a1a1a191;
 }
 .titles {
     display: flex;
@@ -38,6 +41,23 @@ body {
     font-size: 18px;
     height: 25px;
 }
+
+.footer-content {
+  position: static;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  height: 6rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  background-color: #000000;
+}
 .buttons {
     display: flex;
     align-items: center;
@@ -53,10 +73,16 @@ body {
     align-items: center;
     justify-content: center;
 }
+.buttons button img {
+    display: block;
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
 .buttons * :hover {
     border-radius: 90px;
-    background-color: #cbced198;
-    box-shadow: 0px 0px 0px 0px #cbced1be;
+    background-color: #ffffff57;
+    box-shadow: 0px 0px 0px 0px #2727277a;
     align-items: center;
     justify-content: center;
 }
