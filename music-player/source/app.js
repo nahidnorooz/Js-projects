@@ -3,10 +3,6 @@ const music = document.querySelector("audio");
 
 const toggleBtn = document.querySelector(".toggle-btn");
 const toggleBtnImg = document.querySelector(".play-img");
-const skipBackBtn = document.querySelector(".skip-back");
-const skipAheadBtn = document.querySelector(".skip-ahead");
-const previousBtn = document.querySelector(".previous-btn");
-const nextBtn = document.querySelector(".next-btn");
 const musicCover = document.querySelector(".cover-img");
 const musicTitle = document.querySelector(".music-title");
 const singerName = document.querySelector(".singer-name");
@@ -35,52 +31,9 @@ function toggle() {
         toggleBtn.classList.add("pause");
     }
 }
-function skipBack() {
-  music.currentTime -= 10;
-}
-function skipAhead() {
-    music.currentTime += 10;
 
-}
 
-function nextSong() {
-   mainMusicIndex ++;
-
-   if (mainMusicIndex > 2) {
-    mainMusicIndex = 0;
-   }
-   const mainMusic = musics[mainMusicIndex];
-   musicCover.setAttribute("src", mainMusic.cover);
-   music.setAttribute("src", mainMusic.src);
-   musicTitle.innerHTML = mainMusic.title;
-   singerName.innerHTML = mainMusic.singer;
-   
-   music.play();
-   toggleBtnImg.setAttribute("src", "/music-player/imgaes/pause.png");
-   toggleBtn.classList.remove("pause");
-   
-}
-function previousSong() {
-    mainMusicIndex --;
-    
-    if (mainMusicIndex < 0) {
-        mainMusicIndex = 2;  
-    }
-    const mainMusic = musics[mainMusicIndex];
-    musicCover.setAttribute("src", mainMusic.cover);
-    music.setAttribute("src", mainMusic.src);
-    musicTitle.innerHTML = mainMusic.title;
-    singerName.innerHTML = mainMusic.singer;
-
-    music.play();
-    toggleBtnImg.setAttribute("src", "/music-player/imgaes/pause.png");
-    toggleBtn.classList.remove("pause");
-}
 
 toggleBtn.addEventListener("click", toggle);
-skipBackBtn.addEventListener("click", skipBack);
-skipAheadBtn.addEventListener("click", skipAhead);
-previousBtn.addEventListener("click", previousSong);
-nextBtn.addEventListener("click", nextSong);
 music.addEventListener("ended", toggle);
 
