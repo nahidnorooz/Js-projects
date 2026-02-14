@@ -18,10 +18,18 @@ function toggle() {
 
 toggleBtn.addEventListener("click", toggle);
 playBtns.forEach(function (playBtn) {
+
         playBtn.addEventListener("click", function(event) {            
             const mainSrc = playBtn.dataset.src;
             music.setAttribute("src", mainSrc);
             music.play();
+            if (playBtn.className.includes("pause")) {
+                playBtn.lastChild.setAttribute("src", "/music-player/imgaes/pause.png");
+                playBtn.classList.remove("pause");
+            } else {
+                playBtn.lastChild.setAttribute("src", "/music-player/imgaes/play.png");
+                playBtn.classList.add("pause");
+                music.pause();
+            }
         });
     });
-
