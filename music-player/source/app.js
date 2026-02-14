@@ -8,10 +8,10 @@ const toggleBtnImg = document.querySelector(".play-img");
 
 function toggle() {
     if (toggleBtn.className.includes("pause")) {
-        toggleBtnImg.setAttribute("src", "/music-player/imgaes/pause.png");
+        toggleBtnImg.setAttribute("src", "/music-player/imgae/paused.png");
         toggleBtn.classList.remove("pause");
     } else {
-        toggleBtnImg.setAttribute("src", "/music-player/imgaes/play.png");
+        toggleBtnImg.setAttribute("src", "/music-player/imgae/playing.png");
         toggleBtn.classList.add("pause");
     }
 }
@@ -24,10 +24,10 @@ playBtns.forEach(function (playBtn) {
             music.setAttribute("src", mainSrc);
             music.play();
             if (playBtn.className.includes("pause")) {
-                playBtn.lastChild.setAttribute("src", "/music-player/imgaes/pause.png");
+                playBtn.lastChild.setAttribute("src", "/music-player/imgae/paused.png");
                 playBtn.classList.remove("pause");
             } else {
-                playBtn.lastChild.setAttribute("src", "/music-player/imgaes/play.png");
+                playBtn.lastChild.setAttribute("src", "/music-player/imgae/playing.png");
                 playBtn.classList.add("pause");
                 music.pause();
             }
