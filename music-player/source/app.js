@@ -7,12 +7,12 @@ const nextBtn = document.querySelector(".next-btn");
 const toggleBtnImg = document.querySelector(".play-img");
 
 function toggle() {
-    if (toggleBtn.className.includes("pause")) {
+    if (toggleBtn.className.includes("paused")) {
         toggleBtnImg.setAttribute("src", "/music-player/image/paused.png");
-        toggleBtn.classList.remove("pause");
+        toggleBtn.classList.remove("paused");
     } else {
         toggleBtnImg.setAttribute("src", "/music-player/image/playing.png");
-        toggleBtn.classList.add("pause");
+        toggleBtn.classList.add("paused");
     }
 }
 
@@ -22,14 +22,14 @@ playBtns.forEach(function (playBtn) {
         playBtn.addEventListener("click", function(event) {            
             const mainSrc = playBtn.dataset.src;
             music.setAttribute("src", mainSrc);
-            music.play();
-            if (playBtn.className.includes("pause")) {
+            if (playBtn.className.includes("paused")) {
                 playBtn.lastChild.setAttribute("src", "/music-player/image/paused.png");
-                playBtn.classList.remove("pause");
+                playBtn.classList.remove("paused");
+                music.pause();
             } else {
                 playBtn.lastChild.setAttribute("src", "/music-player/image/playing.png");
-                playBtn.classList.add("pause");
-                music.pause();
+                playBtn.classList.add("paused");
+                music.play();
             }
         });
     });
