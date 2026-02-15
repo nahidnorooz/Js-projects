@@ -92,13 +92,13 @@ body {
     height: 40px;
 }
 
-.footer-content {
+.main-player{
     position: fixed;
     bottom: 0;
     left: 0;
     display: flex;
     flex-direction: column;
-    height: 65px;
+    height: 100px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -106,29 +106,56 @@ body {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
     background-color: #000000;
-    padding: 12px;
+    padding: 10px;
+    gap: 30px;
 }
-.buttons {
+.controls {
     display: flex;
     gap: 10px;
 }
-.buttons * {
+.controls * {
     cursor: pointer;
     background-color: transparent;
     border: 0;
     width: 30px;
     height: 30px;
 }
-.buttons button img {
+.controls button img {
     display: flex;
     width: 30px;
     height: 30px;
     filter: brightness(0) invert(1);
 }
-.buttons * :hover {
+.controls * :hover {
     border-radius: 90px;
     background-color: #ffffff57;
     box-shadow: 0px 0px 0px 0px #2727277a;
     align-items: center;
     justify-content: center;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ffffffd0;
+    height: 2.5px;
+}
+
+.music-bar {
+    width: 340px;
+    height: 2.5px;
+    margin-top: 1.5rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+.input:hover {
+    cursor: pointer;
 }
