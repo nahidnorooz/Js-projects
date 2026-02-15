@@ -5,6 +5,7 @@ const toggleBtn = document.querySelector(".toggle-btn");
 const previousBtn = document.querySelector(".previous-btn");
 const nextBtn = document.querySelector(".next-btn");
 const toggleBtnImg = document.querySelector(".play-img");
+const musicBar = document.querySelector(".music-bar");
 
 
 function toggle() {
@@ -52,6 +53,16 @@ playBtns.forEach(function (playBtn) {
             }
         });
     });
+    
+
+music.addEventListener("timeupdate", function() {
+    const progress = (music.currentTime / music.duration) * 100;
+    musicBar.value = progress;
+});
+musicBar.addEventListener("input", function() {
+    const seekTime = (musicBar.value / 100) * music.duration;
+    music.currentTime = seekTime;
+});
 
 toggleBtn.addEventListener("click", toggle);
 music.addEventListener("ended", resetButton);
