@@ -159,3 +159,21 @@ input[type=range]::-webkit-slider-thumb {
 .input:hover {
     cursor: pointer;
 }
+
+.volume-card {
+    position: absolute;
+    left: 0;
+    bottom: 31px;
+    width: 150px;
+    padding-left: 20px;
+}
+.volume {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 120px;
+    height: 4px;
+    background: #2c2929;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+}
