@@ -10,11 +10,11 @@ const musicBar = document.querySelector(".music-bar");
 
 function toggle() {
         if (toggleBtn.className.includes("paused")) {
-        toggleBtnImg.setAttribute("src", "/image/paused.png");
+        toggleBtnImg.setAttribute("src", "../image/paused.png");
         toggleBtn.classList.remove("paused");
         music.pause();
     } else {
-        toggleBtnImg.setAttribute("src", "/image/playing.png");
+        toggleBtnImg.setAttribute("src", "../image/playing.png");
         toggleBtn.classList.add("paused");
         music.play();
     }
@@ -22,14 +22,14 @@ function toggle() {
 function resetButton() {
     playBtns.forEach(function(btn) {
         btn.classList.remove("playing");
-        btn.lastChild.setAttribute("src", "/image/paused.png");
+        btn.lastChild.setAttribute("src", "../image/paused.png");
     });
       if (toggleBtn.className.includes("paused")) {
-        toggleBtnImg.setAttribute("src", "/image/paused.png");
+        toggleBtnImg.setAttribute("src", "../image/paused.png");
         toggleBtn.classList.remove("paused");
         music.pause();
     } else {
-        toggleBtnImg.setAttribute("src", "/image/playing.png");
+        toggleBtnImg.setAttribute("src", "../image/playing.png");
         toggleBtn.classList.add("paused");
         music.play();
     }
@@ -41,14 +41,14 @@ playBtns.forEach(function (playBtn) {
             const mainSrc = playBtn.dataset.src;
             music.setAttribute("src", mainSrc);
             if (playBtn.className.includes("paused")) {
-                playBtn.lastChild.setAttribute("src", "/image/playing.png");
+                playBtn.lastChild.setAttribute("src", "../image/playing.png");
                 playBtn.classList.remove("paused");
-                toggleBtnImg.setAttribute("src", "/image/playing.png");
+                toggleBtnImg.setAttribute("src", "../image/playing.png");
                 music.play();
             } else {
-                playBtn.lastChild.setAttribute("src", "/image/paused.png");
+                playBtn.lastChild.setAttribute("src", "../image/paused.png");
                 playBtn.classList.add("paused");
-                toggleBtnImg.setAttribute("src", "/image/paused.png");
+                toggleBtnImg.setAttribute("src", "../image/paused.png");
                 music.pause();
             }
         });
