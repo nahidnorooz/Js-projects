@@ -65,24 +65,20 @@ musicBar.addEventListener("input", function() {
     music.currentTime = seekTime;
 });
 
-music.volume = volumeBar.value / 100;
-function updateVolumeBar(value) {
-
+function updateVolumeBar() {
+    const value = volumeBar.value;
     volumeBar.style.background = 
-    `linear-gardient(to right, 
+    `linear-gradient(to right,
     white 0%,
     white ${value}%,
     #2c2929 ${value}%,
     #2c2929 100%)`;
 }
-updateVolumeBar(volumeBar.value);
-
 volumeBar.addEventListener("input", function () {
-
-    const value = this.value
     music.volume = volumeBar.value / 100;
-    updateVolumeBar(value);
+    updateVolumeBar();
 });
+updateVolumeBar();
 
 toggleBtn.addEventListener("click", toggle);
 music.addEventListener("ended", resetButton);

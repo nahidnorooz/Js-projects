@@ -172,8 +172,25 @@ input[type=range]::-webkit-slider-thumb {
     appearance: none;
     width: 120px;
     height: 4px;
-    background: #2c2929;
+    background: none;
     border-radius: 2px;
     cursor: pointer;
     outline: none;
+}
+.volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    margin-top: -6px;
+    
+}
+.volume::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: transparent;
 }
