@@ -6,6 +6,7 @@ const previousBtn = document.querySelector(".previous-btn");
 const nextBtn = document.querySelector(".next-btn");
 const toggleBtnImg = document.querySelector(".play-img");
 const musicBar = document.querySelector(".music-bar");
+const volumeBar = document.querySelector(".volume");
 
 
 function toggle() {
@@ -62,6 +63,25 @@ music.addEventListener("timeupdate", function() {
 musicBar.addEventListener("input", function() {
     const seekTime = (musicBar.value / 100) * music.duration;
     music.currentTime = seekTime;
+});
+
+music.volume = volumeBar.value / 100;
+function updateVolumeBar(value) {
+
+    volumeBar.style.background = 
+    `linear-gardient(to right, 
+    white 0%,
+    white ${value}%,
+    #2c2929 ${value}%,
+    #2c2929 100%)`;
+}
+updateVolumeBar(volumeBar.value);
+
+volumeBar.addEventListener("input", function () {
+
+    const value = this.value
+    music.volume = volumeBar.value / 100;
+    updateVolumeBar(value);
 });
 
 toggleBtn.addEventListener("click", toggle);
