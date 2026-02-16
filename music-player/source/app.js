@@ -7,6 +7,9 @@ const nextBtn = document.querySelector(".next-btn");
 const toggleBtnImg = document.querySelector(".play-img");
 const musicBar = document.querySelector(".music-bar");
 const volumeBar = document.querySelector(".volume");
+const likeBtn = document.querySelector(".like-btn");
+const likeBtnImg = document.querySelector(".like-btn-img");
+
 
 
 function toggle() {
@@ -79,6 +82,19 @@ volumeBar.addEventListener("input", function () {
     updateVolumeBar();
 });
 updateVolumeBar();
+
+likeBtn.addEventListener("click", function() {
+    if (likeBtn.className.includes("unliked")) {
+        likeBtnImg.setAttribute("src", "../image/heart-filled.png");
+        likeBtn.classList.remove("unliked");
+        likeBtn.classList.add("liked");
+
+    } else {
+        likeBtnImg.setAttribute("src", "../image/heart.png");
+        likeBtn.classList.remove("liked");
+        likeBtn.classList.add("unliked");
+    }
+});
 
 toggleBtn.addEventListener("click", toggle);
 music.addEventListener("ended", resetButton);
