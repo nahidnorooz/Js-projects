@@ -97,74 +97,18 @@ body {
     bottom: 0;
     left: 0;
     display: flex;
-    height: 100px;
+    height: 120px;
     width: 100%;
     align-items: center;
-    justify-content: center;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
+    justify-content: space-between;
     background-color: #000000;
-    padding: 10px;
-    gap: 20px;
-}
-.controls {
-    display: flex;
-    gap: 10px;
-}
-.controls * {
-    cursor: pointer;
-    background-color: transparent;
-    border: 0;
-    width: 30px;
-    height: 30px;
-}
-.controls button img {
-    display: flex;
-    width: 30px;
-    height: 30px;
-    filter: brightness(0) invert(1);
-}
-.controls * :hover {
-    border-radius: 90px;
-    background-color: #ffffff57;
-    box-shadow: 0px 0px 0px 0px #2727277a;
-    align-items: center;
-    justify-content: center;
-}
-input[type=range] {
-    -webkit-appearance: none;
-    appearance: none;
-    background: #ffffffd0;
-    height: 2.5px;
-}
-
-.music-bar {
-    width: 600px;
-    height: 2.5px;
-    border-radius: 0;
-    transition: all 0.3s ease;
-    margin-bottom: 7px;
-}
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: white;
-    cursor: pointer;
-}
-.input:hover {
-    cursor: pointer;
 }
 
 .volume-card {
-    position: absolute;
-    left: 0;
-    bottom: 31px;
+    display: flex;
+    align-items: center;
     width: 150px;
-    padding-left: 20px;
+    margin-left: 30px;
 }
 .volume {
     -webkit-appearance: none;
@@ -193,29 +137,101 @@ input[type=range]::-webkit-slider-thumb {
     height: 4px;
     background: transparent;
 }
-.music-detail {
+.center-player {
+    flex: 1;
     display: flex;
-    position: absolute;
+    flex-direction: column;
     align-items: center;
-    right: 0;
+    justify-content: center;
     gap: 20px;
+}
+.volume-card input, .music-bar {
+    margin-top: 0;
+}
+.music-bar {
+    display: block;
+    height: 4px;
+    width: 600px;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+.controls {
+    display: flex;
+    gap: 25px;
+}
+.controls * {
+    display: flex;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    gap: 20px;
+}
+.controls button img {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) invert(1);
+}
+.controls * :hover {
+    border-radius: 90px;
+    background-color: #ffffff57;
+    box-shadow: 0px 0px 0px 0px #2727277a;
+    align-items: center;
+    justify-content: center;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ffffffd0;
+    height: 2.5px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+.input:hover {
+    cursor: pointer;
+}
+.volume-card, .music-detail {
+    width: 220px;
+}
+.music-details {
+    align-items: flex-end;
+    width: 200px;
     font-size: 14px;
-    line-height: 20px;
-    bottom: 31px;
+    text-align: right;
+    margin-right: 30px;
+    max-width: 220px;
+    overflow: hidden;
+}
+.music-detail h4, .music-detail p{
+    margin: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.music-name {
+    font-size: 14px;
+}
 .artist {
     cursor: pointer;
+    font-size: 13px;
 }
 .like-btn {
     background: transparent;
     border: 0;
     filter: brightness(0) invert(1);
     cursor: pointer;
-
 }
 .like-btn-img {
     background: transparent;
+    width: 23px;
+    height: 23px;
 }
