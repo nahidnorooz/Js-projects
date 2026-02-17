@@ -9,6 +9,9 @@ const musicBar = document.querySelector(".music-bar");
 const volumeBar = document.querySelector(".volume");
 const likeBtn = document.querySelector(".like-btn");
 const likeBtnImg = document.querySelector(".like-btn-img");
+const songName = document.querySelector(".music-name");
+const artistName = document.querySelector(".artist");
+
 
 
 

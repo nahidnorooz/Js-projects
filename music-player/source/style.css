@@ -105,10 +105,9 @@ body {
 }
 
 .volume-card {
-    display: flex;
     align-items: center;
-    width: 150px;
     margin-left: 30px;
+    margin-bottom: 0px;
 }
 .volume {
     -webkit-appearance: none;
