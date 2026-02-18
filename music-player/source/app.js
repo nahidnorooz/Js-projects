@@ -43,10 +43,15 @@ function resetButton() {
 }
 
 playBtns.forEach(function (playBtn) {
-
+    
         playBtn.addEventListener("click", function() {            
             const mainSrc = playBtn.dataset.src;
+            const musicName = playBtn.dataset.name;
+            const artist = playBtn.dataset.artist;
+
             music.setAttribute("src", mainSrc);
+            songName.innerHTML = musicName;
+            artistName.innerHTML = artist;
             if (playBtn.className.includes("paused")) {
                 playBtn.lastChild.setAttribute("src", "../image/playing.png");
                 playBtn.classList.remove("paused");
@@ -108,7 +113,9 @@ music.addEventListener("timeupdate", function() {
 function updateMusicBar(percent) {
     musicBar.style.background = 
     `linear-gradient(to right, white ${percent}%, #2c2929 ${percent}%)`;
+
 }
+
 
 toggleBtn.addEventListener("click", toggle);
 music.addEventListener("ended", resetButton);
