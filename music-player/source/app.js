@@ -67,14 +67,7 @@ playBtns.forEach(function (playBtn) {
     });
     
 
-music.addEventListener("timeupdate", function() {
-    const progress = (music.currentTime / music.duration) * 100;
-    musicBar.value = progress;
-});
-musicBar.addEventListener("input", function() {
-    const seekTime = (musicBar.value / 100) * music.duration;
-    music.currentTime = seekTime;
-});
+
 
 function updateVolumeBar() {
     const value = volumeBar.value;
@@ -105,6 +98,9 @@ likeBtn.addEventListener("click", function() {
 });
 
 music.addEventListener("timeupdate", function() {
+
+        if (!music.duration) return;
+
     const percent = (music.currentTime / music.duration) * 100;
     musicBar.value = percent;
     updateMusicBar(percent);
@@ -113,9 +109,14 @@ music.addEventListener("timeupdate", function() {
 function updateMusicBar(percent) {
     musicBar.style.background = 
     `linear-gradient(to right, white ${percent}%, #2c2929 ${percent}%)`;
-
 }
 
+music.addEventListener("pause", function() {
+    if (!music.duration) return;
+    const percent = (music.currentTime / music.duration) * 100;
+    musicBar.value = percent;
+
+})
 
 toggleBtn.addEventListener("click", toggle);
 music.addEventListener("ended", resetButton);
