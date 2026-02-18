@@ -23,7 +23,7 @@ function toggle() {
         toggleBtn.classList.remove("paused");
 
         playBtns.forEach(function(btn) {
-                        const btnImg = playBtn.querySelector("img");
+        const btnImg = btn.querySelector("img");
 
         btnImg.setAttribute("src", "../image/playing.png");
         btn.classList.add("paused");
@@ -34,7 +34,7 @@ function toggle() {
         toggleBtn.classList.add("paused");
 
         playBtns.forEach(function(btn) {
-            const btnImg = playBtn.querySelector("img");
+            const btnImg = btn.querySelector("img");
 
             btnImg.setAttribute("src", "../image/paused.png");
             btn.classList.remove("paused");
@@ -42,13 +42,12 @@ function toggle() {
     }
 }
 function resetButton() {
-            const btnImg = playBtn.querySelector("img");
             
     toggleBtnImg.setAttribute("src", "../image/paused.png");
     toggleBtn.classList.remove("paused");
     
     playBtns.forEach(function(btn) {
-        const btnImg = playBtn.querySelector("img");
+        const btnImg = btn.querySelector("img");
 
         btn.classList.remove("paused");
         btnImg.setAttribute("src", "../image/paused.png")
@@ -70,8 +69,6 @@ playBtns.forEach(function (playBtn) {
                 songName.innerHTML = musicName;
                 artistName.innerHTML = artist;
                 currentActiveBtn = playBtn;
-
-                
 
             music.play();
             }
@@ -140,6 +137,23 @@ music.addEventListener("pause", function() {
     musicBar.value = percent;
 
 });
+music.addEventListener("play", function () {
+    toggleBtnImg.setAttribute("src", "../image/playing.png");
 
+    playBtns.forEach(function(btn) {
+        const btnImg = btn.querySelector("img");
+        btnImg.setAttribute("src", "../image/paused.png");
+    });
+    if (currentActiveBtn) {
+        currentActiveBtn.querySelector("img").src = "../image/playing.png";
+    }
+});
+music.addEventListener("pause", function() {
+    toggleBtnImg.setAttribute("src", "../image/paused.png");
+    playBtns.forEach(function(btn) {
+        const btnImg = btn.querySelector("img");
+        btnImg.setAttribute("src", "../image/paused.png");
+    });
+});
 toggleBtn.addEventListener("click", toggle);
 music.addEventListener("ended", resetButton);
