@@ -16,30 +16,36 @@ const artistName = document.querySelector(".artist");
 
 
 function toggle() {
-        if (toggleBtn.className.includes("paused")) {
-        toggleBtnImg.setAttribute("src", "../image/paused.png");
-        toggleBtn.classList.remove("paused");
-        music.pause();
-    } else {
-        toggleBtnImg.setAttribute("src", "../image/playing.png");
-        toggleBtn.classList.add("paused");
+
+    const isPaused = toggleBtn.className.includes("paused");
+    if (isPaused) {
         music.play();
+        toggleBtnImg.setAttribute("src", "../image/playing.png");
+        toggleBtn.classList.remove("paused");
+
+        playBtns.forEach(function(btn) {
+        btn.lastElementChild.setAttribute("src", "../image/playing.png");
+        btn.classList.add("paused");
+    });
+    } else {
+        music.pause();
+        toggleBtnImg.setAttribute("src", "../image/paused.png");
+        toggleBtn.classList.add("paused");
+
+        playBtns.forEach(function(btn) {
+            btn.lastElementChild.setAttribute("src", "../image/paused.png");
+            btn.classList.remove("paused");
+        });
     }
 }
 function resetButton() {
+    toggleBtnImg.setAttribute("src", "../image/paused.png");
+    toggleBtn.classList.remove("paused");
+    
     playBtns.forEach(function(btn) {
-        btn.classList.remove("playing");
-        btn.lastChild.setAttribute("src", "../image/paused.png");
+        btn.classList.remove("paused");
+        btn.lastChild.setAttribute("src", "../image/paused.png")
     });
-      if (toggleBtn.className.includes("paused")) {
-        toggleBtnImg.setAttribute("src", "../image/paused.png");
-        toggleBtn.classList.remove("paused");
-        music.pause();
-    } else {
-        toggleBtnImg.setAttribute("src", "../image/playing.png");
-        toggleBtn.classList.add("paused");
-        music.play();
-    }
 }
 
 playBtns.forEach(function (playBtn) {
@@ -66,8 +72,6 @@ playBtns.forEach(function (playBtn) {
         });
     });
     
-
-
 
 function updateVolumeBar() {
     const value = volumeBar.value;
@@ -105,6 +109,11 @@ music.addEventListener("timeupdate", function() {
     musicBar.value = percent;
     updateMusicBar(percent);
 });
+musicBar.addEventListener("input", function() {
+    const percent = musicBar.value;
+    music.currentTime = (percent / 100) * music.duration;
+    updateMusicBar(percent);
+});
 
 function updateMusicBar(percent) {
     musicBar.style.background = 
@@ -116,7 +125,7 @@ music.addEventListener("pause", function() {
     const percent = (music.currentTime / music.duration) * 100;
     musicBar.value = percent;
 
-})
+});
 
 toggleBtn.addEventListener("click", toggle);
 music.addEventListener("ended", resetButton);
