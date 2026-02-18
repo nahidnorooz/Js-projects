@@ -14,7 +14,6 @@ const artistName = document.querySelector(".artist");
 
 
 
-
 function toggle() {
 
     const isPaused = toggleBtn.className.includes("paused");
