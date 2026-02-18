@@ -99,5 +99,16 @@ likeBtn.addEventListener("click", function() {
     }
 });
 
+music.addEventListener("timeupdate", function() {
+    const percent = (music.currentTime / music.duration) * 100;
+    musicBar.value = percent;
+    updateMusicBar(percent);
+});
+
+function updateMusicBar(percent) {
+    musicBar.style.background = 
+    `linear-gradient(to right, white ${percent}%, #2c2929 ${percent}%)`;
+}
+
 toggleBtn.addEventListener("click", toggle);
 music.addEventListener("ended", resetButton);

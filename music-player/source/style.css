@@ -148,11 +148,14 @@ body {
     margin-top: 0;
 }
 .music-bar {
+    appearance: none;
     display: block;
     height: 4px;
     width: 600px;
     margin: 0;
     transition: all 0.3s ease;
+    cursor: pointer;
+    background: linear-gradient(to right, white 0%, #2c2929 0%);
 }
 .controls {
     display: flex;
@@ -220,7 +223,6 @@ input[type=range]::-webkit-slider-thumb {
     font-size: 14px;
 }
 .artist {
-    cursor: pointer;
     font-size: 13px;
 }
 .like-btn {
