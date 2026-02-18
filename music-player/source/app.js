@@ -23,7 +23,9 @@ function toggle() {
         toggleBtn.classList.remove("paused");
 
         playBtns.forEach(function(btn) {
-        btn.lastElementChild.setAttribute("src", "../image/playing.png");
+                        const btnImg = playBtn.querySelector("img");
+
+        btnImg.setAttribute("src", "../image/playing.png");
         btn.classList.add("paused");
     });
     } else {
@@ -32,18 +34,24 @@ function toggle() {
         toggleBtn.classList.add("paused");
 
         playBtns.forEach(function(btn) {
-            btn.lastElementChild.setAttribute("src", "../image/paused.png");
+            const btnImg = playBtn.querySelector("img");
+
+            btnImg.setAttribute("src", "../image/paused.png");
             btn.classList.remove("paused");
         });
     }
 }
 function resetButton() {
+            const btnImg = playBtn.querySelector("img");
+            
     toggleBtnImg.setAttribute("src", "../image/paused.png");
     toggleBtn.classList.remove("paused");
     
     playBtns.forEach(function(btn) {
+        const btnImg = playBtn.querySelector("img");
+
         btn.classList.remove("paused");
-        btn.lastChild.setAttribute("src", "../image/paused.png")
+        btnImg.setAttribute("src", "../image/paused.png")
     });
 }
 let currentActiveBtn = null;
@@ -55,11 +63,15 @@ playBtns.forEach(function (playBtn) {
             const musicName = playBtn.dataset.name;
             const artist = playBtn.dataset.artist;
 
+            const btnImg = playBtn.querySelector("img");
+
             if (currentActiveBtn !== playBtn) {
                 music.setAttribute("src", mainSrc);
                 songName.innerHTML = musicName;
                 artistName.innerHTML = artist;
                 currentActiveBtn = playBtn;
+
+                
 
             music.play();
             }
