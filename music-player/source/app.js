@@ -46,6 +46,7 @@ function resetButton() {
         btn.lastChild.setAttribute("src", "../image/paused.png")
     });
 }
+let currentActiveBtn = null;
 
 playBtns.forEach(function (playBtn) {
     
@@ -54,20 +55,22 @@ playBtns.forEach(function (playBtn) {
             const musicName = playBtn.dataset.name;
             const artist = playBtn.dataset.artist;
 
-            music.setAttribute("src", mainSrc);
-            songName.innerHTML = musicName;
-            artistName.innerHTML = artist;
-            if (playBtn.className.includes("paused")) {
-                playBtn.lastChild.setAttribute("src", "../image/playing.png");
-                playBtn.classList.remove("paused");
-                toggleBtnImg.setAttribute("src", "../image/playing.png");
-                music.play();
-            } else {
-                playBtn.lastChild.setAttribute("src", "../image/paused.png");
-                playBtn.classList.add("paused");
-                toggleBtnImg.setAttribute("src", "../image/paused.png");
-                music.pause();
+            if (currentActiveBtn !== playBtn) {
+                music.setAttribute("src", mainSrc);
+                songName.innerHTML = musicName;
+                artistName.innerHTML = artist;
+                currentActiveBtn = playBtn;
+
+            music.play();
             }
+            else {
+                if (music.paused) {
+                    music.play();
+                } else {
+                    music.pause();
+                }
+            }
+            
         });
     });
     
