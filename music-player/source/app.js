@@ -12,35 +12,34 @@ const likeBtnImg = document.querySelector(".like-btn-img");
 const songName = document.querySelector(".music-name");
 const artistName = document.querySelector(".artist");
 
+const songs = [...playBtns].map(function(btn) {
+    return {
+        src: btn.dataset.src,
+        title: btn.dataset.name,
+        artist: btn.dataset.artist
+    };
+});
 
 
 function updateButtons() {
 
     const isPaused = toggleBtn.className.includes("paused");
     if (isPaused) {
-        music.play();
+        music.play().catch(function(){});
         toggleBtnImg.setAttribute("src", "../image/playing.png");
         toggleBtn.classList.remove("paused");
 
-        playBtns.forEach(function(btn) {
-        const btnImg = btn.querySelector("img");
-
-        btnImg.setAttribute("src", "../image/playing.png");
-        btn.classList.add("paused");
-    });
-    } else {
-        music.pause();
-        toggleBtnImg.setAttribute("src", "../image/paused.png");
-        toggleBtn.classList.add("paused");
-
-        playBtns.forEach(function(btn) {
-            const btnImg = btn.querySelector("img");
-
-            btnImg.setAttribute("src", "../image/paused.png");
-            btn.classList.remove("paused");
-        });
-    }
-}
+        if (currentActiveBtn) {
+            currentActiveBtn.querySelector("img").src = "../image/playing.png";
+        } else {
+            music.pause();
+            toggleBtnImg.src = "../image/paused.png";
+            toggleBtn.classList.add("paused");
+            if (currentActiveBtn) {
+                currentActiveBtn.querySelector("img").src = "../image/paused.png";
+            }
+        }
+}}
 function resetButton() {
             
     toggleBtnImg.setAttribute("src", "../image/paused.png");
@@ -53,13 +52,36 @@ function resetButton() {
         btnImg.setAttribute("src", "../image/paused.png")
     });
 }
-function nextSong() {
+function loadSong(index) {
 
+    currentSongIndex = index;
+    const song = songs[index];
+
+    music.src = song.src;
+    songName.innerHTML = song.title;
+    artistName.innerHTML = song.artist;
+    currentActiveBtn = playBtns[index];
+    music.play().catch(function() {});
+    updateButtons();
 }
 function nextSong() {
+    currentSongIndex++;
 
+    if (currentSongIndex >= songs.length) {
+        currentSongIndex = 0;
+    }
+    loadSong(currentSongIndex);
+}
+function previousSong() {
+    currentSongIndex--;
+
+    if (currentSongIndex < 0) {
+        currentSongIndex = songs.length - 1;
+    }
+    loadSong(currentSongIndex);
 }
 
+let currentSongIndex = 0;
 let currentActiveBtn = null;
 
 playBtns.forEach(function (playBtn) {
@@ -167,4 +189,6 @@ music.addEventListener("pause", function() {
     });
 });
 toggleBtn.addEventListener("click", updateButtons);
+nextBtn.addEventListener("click", nextSong);
+previousBtn.addEventListener("click", previousSong);
 music.addEventListener("ended", resetButton);
