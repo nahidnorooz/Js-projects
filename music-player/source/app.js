@@ -14,7 +14,7 @@ const artistName = document.querySelector(".artist");
 
 
 
-function toggle() {
+function updateButtons() {
 
     const isPaused = toggleBtn.className.includes("paused");
     if (isPaused) {
@@ -155,5 +155,5 @@ music.addEventListener("pause", function() {
         btnImg.setAttribute("src", "../image/paused.png");
     });
 });
-toggleBtn.addEventListener("click", toggle);
+toggleBtn.addEventListener("click", updateButtons);
 music.addEventListener("ended", resetButton);
