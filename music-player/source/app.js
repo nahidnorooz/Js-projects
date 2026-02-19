@@ -53,6 +53,13 @@ function resetButton() {
         btnImg.setAttribute("src", "../image/paused.png")
     });
 }
+function nextSong() {
+
+}
+function nextSong() {
+
+}
+
 let currentActiveBtn = null;
 
 playBtns.forEach(function (playBtn) {
@@ -62,7 +69,6 @@ playBtns.forEach(function (playBtn) {
             const musicName = playBtn.dataset.name;
             const artist = playBtn.dataset.artist;
 
-            const btnImg = playBtn.querySelector("img");
 
             if (currentActiveBtn !== playBtn) {
                 music.setAttribute("src", mainSrc);
@@ -71,12 +77,17 @@ playBtns.forEach(function (playBtn) {
                 currentActiveBtn = playBtn;
 
             music.play();
+            updateButtons();
             }
             else {
                 if (music.paused) {
                     music.play();
+                    updateButtons();
+                    
                 } else {
                     music.pause();
+                    updateButtons();
+
                 }
             }
             
