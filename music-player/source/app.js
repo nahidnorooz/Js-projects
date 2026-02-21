@@ -20,10 +20,12 @@ const songs = [...playBtns].map(function(btn) {
     };
 });
 
+let currentSongIndex = 0;
+let currentActiveBtn = playBtns[0];
+
 
 function updateButtons() {
 
-   
     if (music.paused) {
         music.play();
     } else {
@@ -69,9 +71,6 @@ function previousSong() {
     }
     loadSong(currentSongIndex);
 }
-
-let currentSongIndex = 0;
-let currentActiveBtn = null;
 
 playBtns.forEach(function (playBtn, index) {
     
