@@ -23,23 +23,13 @@ const songs = [...playBtns].map(function(btn) {
 
 function updateButtons() {
 
-    const isPaused = toggleBtn.className.includes("paused");
-    if (isPaused) {
-        music.play().catch(function(){});
-        toggleBtnImg.setAttribute("src", "../image/playing.png");
-        toggleBtn.classList.remove("paused");
-
-        if (currentActiveBtn) {
-            currentActiveBtn.querySelector("img").src = "../image/playing.png";
-        } else {
-            music.pause();
-            toggleBtnImg.src = "../image/paused.png";
-            toggleBtn.classList.add("paused");
-            if (currentActiveBtn) {
-                currentActiveBtn.querySelector("img").src = "../image/paused.png";
-            }
-        }
-}}
+   
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
 function resetButton() {
             
     toggleBtnImg.setAttribute("src", "../image/paused.png");
@@ -62,7 +52,6 @@ function loadSong(index) {
     artistName.innerHTML = song.artist;
     currentActiveBtn = playBtns[index];
     music.play().catch(function() {});
-    updateButtons();
 }
 function nextSong() {
     currentSongIndex++;
@@ -84,32 +73,18 @@ function previousSong() {
 let currentSongIndex = 0;
 let currentActiveBtn = null;
 
-playBtns.forEach(function (playBtn) {
+playBtns.forEach(function (playBtn, index) {
     
         playBtn.addEventListener("click", function() {            
-            const mainSrc = playBtn.dataset.src;
-            const musicName = playBtn.dataset.name;
-            const artist = playBtn.dataset.artist;
-
-
+            
             if (currentActiveBtn !== playBtn) {
-                music.setAttribute("src", mainSrc);
-                songName.innerHTML = musicName;
-                artistName.innerHTML = artist;
-                currentActiveBtn = playBtn;
-
-            music.play();
-            updateButtons();
+                loadSong(index);
             }
             else {
                 if (music.paused) {
-                    music.play();
-                    updateButtons();
-                    
+                    music.play();                    
                 } else {
                     music.pause();
-                    updateButtons();
-
                 }
             }
             
